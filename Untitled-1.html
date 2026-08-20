@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Hanif Mohammad - Personal Portfolio Website">
+
+    <title>Hanif Mohammad | Portfolio</title>
+
+    <style>
+
+        /* =========================
+           RESET & BASIC
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(17, 24, 39, 0.97);
+            color: white;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .navbar {
+            min-height: 70px;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        select,
+        #themeBtn,
+        #menuBtn {
+            border: none;
+            border-radius: 7px;
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+
+        select {
+            background: white;
+            color: #222;
+        }
+
+        #themeBtn {
+            background: #374151;
+            color: white;
+            font-size: 17px;
+        }
+
+        #menuBtn {
+            display: none;
+            background: #374151;
+            color: white;
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 50px;
+            padding: 80px 5%;
+
+            background:
+                linear-gradient(135deg, #dbeafe, #f8fafc);
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .small-text {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin: 8px 0;
+        }
+
+        .hero h2 {
+            color: #4b5563;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            background: #2563eb;
+            color: white;
+
+            padding: 12px 24px;
+            border-radius: 8px;
+
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-outline:hover {
+            color: white;
+        }
+
+
+        /* PROFILE */
+
+        .profile {
+            width: 280px;
+            height: 280px;
+
+            border-radius: 50%;
+        }
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #2563eb;
+            color: white;
+
+            font-size: 70px;
+            font-weight: bold;
+
+            box-shadow: 0 20px 50px rgba(37,99,235,0.35);
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+
+            width: 60px;
+            height: 4px;
+
+            background: #2563eb;
+
+            margin: 10px auto 0;
+            border-radius: 5px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+
+            text-align: center;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.07);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skill {
+            margin: 18px 0;
+            text-align: left;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 9px;
+
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #2563eb;
+            border-radius: 10px;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .timeline {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            background: white;
+
+            padding: 28px;
+
+            margin-bottom: 20px;
+
+            border-left: 5px solid #2563eb;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 7px 20px rgba(0,0,0,0.06);
+        }
+
+        .timeline-item span {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .project-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.07);
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+
+            text-align: center;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.07);
+        }
+
+        .contact-item {
+            margin: 12px 0;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111827;
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
+        #topBtn {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #2563eb;
+            color: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 999;
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark {
+            background: #0f172a;
+            color: #e5e7eb;
+        }
+
+        body.dark .hero {
+            background:
+                linear-gradient(135deg, #111827, #0f172a);
+        }
+
+        body.dark .hero h2 {
+            color: #cbd5e1;
+        }
+
+        body.dark .card,
+        body.dark .project-card,
+        body.dark .timeline-item,
+        body.dark .contact-box {
+            background: #1e293b;
+            color: #e5e7eb;
+        }
+
+        body.dark .skill-bar {
+            background: #334155;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            #menuBtn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: #111827;
+
+                flex-direction: column;
+
+                align-items: center;
+
+                padding: 20px;
+
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile {
+                width: 210px;
+                height: 210px;
+                font-size: 50px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .navbar {
+                width: 94%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            .profile {
+                width: 180px;
+                height: 180px;
+                font-size: 45px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Hanif<span>.</span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#home" data-key="navHome">Home</a></li>
+
+            <li><a href="#about" data-key="navAbout">About</a></li>
+
+            <li><a href="#skills" data-key="navSkills">Skills</a></li>
+
+            <li><a href="#education" data-key="navEducation">Education</a></li>
+
+            <li><a href="#experience" data-key="navExperience">Experience</a></li>
+
+            <li><a href="#projects" data-key="navProjects">Projects</a></li>
+
+            <li><a href="#contact" data-key="navContact">Contact</a></li>
+
+        </ul>
+
+        <div class="nav-right">
+
+            <select id="language" onchange="changeLanguage()">
+
+                <option value="bn">🇧🇩 বাংলা</option>
+
+                <option value="en">🇬🇧 English</option>
+
+                <option value="ja">🇯🇵 日本語</option>
+
+            </select>
+
+            <button id="themeBtn" onclick="toggleTheme()">
+                🌙
+            </button>
+
+            <button id="menuBtn" onclick="toggleMenu()">
+                ☰
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="small-text" data-key="hello">
+            Hello, I'm
+        </div>
+
+        <h1 id="name">
+            Hanif Mohammad
+        </h1>
+
+        <h2 data-key="profession">
+            CAD & IT Student
+        </h2>
+
+        <p id="intro">
+            Welcome to my personal portfolio website.
+            I am currently studying CAD Design and IT in Japan.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#about" class="btn" data-key="aboutBtn">
+                About Me
+            </a>
+
+            <a href="#projects"
+               class="btn btn-outline"
+               data-key="projectBtn">
+                My Projects
+            </a>
+            <a href="CV/26hanif.cv..pdf"
+               class="btn"
+               download>
+               Download CV
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="profile">
+        <img src="image/WhatsApp Image.jpeg" alt="Hanif Mohammad">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title" data-key="aboutTitle">
+            About Me
+        </h2>
+
+        <p class="about-text" id="aboutText">
+            My name is Hanif Mohammad. I am currently living
+            and studying in Japan. I am interested in IT,
+            programming, CAD design and modern technology.
+            My goal is to improve my technical skills and
+            build a professional career in Japan.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2 class="section-title" data-key="skillsTitle">
+            My Skills
+        </h2>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💻
+                </div>
+
+                <h3>Programming</h3>
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>Java</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress"
+                             style="width:70%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>65%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress"
+                             style="width:65%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>HTML / CSS</span>
+                        <span>80%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress"
+                             style="width:80%">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📐
+                </div>
+
+                <h3>CAD Design</h3>
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>CAD</span>
+                        <span>75%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress"
+                             style="width:75%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>2D Design</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress"
+                             style="width:70%">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🌏
+                </div>
+
+                <h3>Languages</h3>
+
+                <p>🇧🇩 বাংলা</p>
+
+                <p>🇬🇧 English</p>
+
+                <p>🇯🇵 日本語</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section id="education">
+
+    <div class="container">
+
+        <h2 class="section-title" data-key="educationTitle">
+            Education
+        </h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span>
+                    2025 - Present
+                </span>
+
+                <h3>
+                    CAD & IT Course
+                </h3>
+
+                <p>
+                    Japan 🇯🇵
+                </p>
+
+                <p>
+                    CAD Design, Java, Python
+                    and Information Processing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <h2 class="section-title" data-key="experienceTitle">
+            Work Experience
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Part-time Work
+                </h3>
+
+                <p>
+                    Japan 🇯🇵
+                </p>
+
+                <p>
+                    Customer service, teamwork
+                    and workplace responsibilities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title" data-key="projectsTitle">
+            My Projects
+        </h2>
+
+
+        <div class="cards">
+
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Personal Portfolio
+                </h3>
+
+                <p>
+                    A responsive personal website
+                    built with HTML, CSS and JavaScript.
+                </p>
+
+                <a href="#"
+                   class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    📐
+                </div>
+
+                <h3>
+                    CAD Design
+                </h3>
+
+                <p>
+                    CAD design and technical drawing
+                    projects from my studies.
+                </p>
+
+                <a href="#"
+                   class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    🐍
+                </div>
+
+                <h3>
+                    Python / Java Project
+                </h3>
+
+                <p>
+                    Small programming projects created
+                    while learning Java and Python.
+                </p>
+
+                <a href="#"
+                   class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title" data-key="contactTitle">
+            Contact Me
+        </h2>
+
+        <div class="contact-box">
+
+            <p data-key="contactText">
+                If you would like to contact me,
+                feel free to send me a message.
+            </p>
+
+            <div class="contact-item">
+                📧 Email:
+                hanifmohammad.zhn@gmail.com
+            </div>
+
+            <div class="contact-item">
+                📍 Japan 🇯🇵
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Hanif Mohammad.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<button id="topBtn" onclick="goTop()">
+    ↑
+</button>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    /* =========================
+       LANGUAGE
+    ========================= */
+
+    const translations = {
+
+        bn: {
+
+            navHome: "হোম",
+            navAbout: "আমার সম্পর্কে",
+            navSkills: "দক্ষতা",
+            navEducation: "শিক্ষা",
+            navExperience: "অভিজ্ঞতা",
+            navProjects: "প্রজেক্ট",
+            navContact: "যোগাযোগ",
+
+            hello: "হ্যালো, আমি",
+
+            profession: "CAD ও IT শিক্ষার্থী",
+
+            name: "হানিফ মোহাম্মদ",
+
+            intro:
+            "আমার ব্যক্তিগত পোর্টফোলিও ওয়েবসাইটে আপনাকে স্বাগতম। আমি বর্তমানে জাপানে CAD Design ও IT নিয়ে পড়াশোনা করছি।",
+
+            aboutBtn: "আমার সম্পর্কে",
+
+            projectBtn: "আমার প্রজেক্ট",
+
+            aboutTitle: "আমার সম্পর্কে",
+
+            aboutText:
+            "আমার নাম হানিফ মোহাম্মদ। আমি বর্তমানে জাপানে বসবাস ও পড়াশোনা করছি। IT, Programming, CAD Design এবং আধুনিক প্রযুক্তির প্রতি আমার আগ্রহ রয়েছে। ভবিষ্যতে আমার প্রযুক্তিগত দক্ষতা বৃদ্ধি করে জাপানে একটি Professional Career গড়ে তুলতে চাই।",
+
+            skillsTitle: "আমার দক্ষতা",
+
+            educationTitle: "শিক্ষাগত যোগ্যতা",
+
+            experienceTitle: "কাজের অভিজ্ঞতা",
+
+            projectsTitle: "আমার প্রজেক্ট",
+
+            contactTitle: "যোগাযোগ করুন",
+
+            contactText:
+            "আমার সাথে যোগাযোগ করতে নিচের তথ্য ব্যবহার করতে পারেন।"
+
+        },
+
+
+        en: {
+
+            navHome: "Home",
+            navAbout: "About",
+            navSkills: "Skills",
+            navEducation: "Education",
+            navExperience: "Experience",
+            navProjects: "Projects",
+            navContact: "Contact",
+
+            hello: "Hello, I'm",
+
+            profession: "CAD & IT Student",
+
+            name: "Hanif Mohammad",
+
+            intro:
+            "Welcome to my personal portfolio website. I am currently studying CAD Design and IT in Japan.",
+
+            aboutBtn: "About Me",
+
+            projectBtn: "My Projects",
+
+            aboutTitle: "About Me",
+
+            aboutText:
+            "My name is Hanif Mohammad. I am currently living and studying in Japan. I am interested in IT, programming, CAD design and modern technology. My goal is to improve my technical skills and build a professional career in Japan.",
+
+            skillsTitle: "My Skills",
+
+            educationTitle: "Education",
+
+            experienceTitle: "Work Experience",
+
+            projectsTitle: "My Projects",
+
+            contactTitle: "Contact Me",
+
+            contactText:
+            "If you would like to contact me, feel free to use the information below."
+
+        },
+
+
+        ja: {
+
+            navHome: "ホーム",
+            navAbout: "自己紹介",
+            navSkills: "スキル",
+            navEducation: "学歴",
+            navExperience: "仕事経験",
+            navProjects: "プロジェクト",
+            navContact: "お問い合わせ",
+
+            hello: "こんにちは、私は",
+
+            profession: "CAD・IT学生",
+
+            name: "ハニフ・モハンマド",
+
+            intro:
+            "私のポートフォリオサイトへようこそ。現在、日本でCADデザインとITを勉強しています。",
+
+            aboutBtn: "自己紹介",
+
+            projectBtn: "プロジェクト",
+
+            aboutTitle: "自己紹介",
+
+            aboutText:
+            "私の名前はハニフ・モハンマドです。現在、日本で生活しながら勉強しています。IT、プログラミング、CADデザイン、最新技術に興味があります。将来は技術力を高め、日本でプロフェッショナルとして働くことを目指しています。",
+
+            skillsTitle: "スキル",
+
+            educationTitle: "学歴",
+
+            experienceTitle: "仕事の経験",
+
+            projectsTitle: "プロジェクト",
+
+            contactTitle: "お問い合わせ",
+
+            contactText:
+            "お問い合わせは下記の情報からお願いします。"
+
+        }
+
+    };
+
+
+    function changeLanguage() {
+
+        const lang =
+            document.getElementById("language").value;
+
+        document
+            .querySelectorAll("[data-key]")
+            .forEach(element => {
+
+                const key =
+                    element.getAttribute("data-key");
+
+                if (translations[lang][key]) {
+
+                    element.textContent =
+                        translations[lang][key];
+
+                }
+
+            });
+
+        document.getElementById("name").textContent =
+            translations[lang].name;
+
+        document.getElementById("intro").textContent =
+            translations[lang].intro;
+
+        document.getElementById("aboutText").textContent =
+            translations[lang].aboutText;
+    }
+
+
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    function toggleTheme() {
+
+        document.body.classList.toggle("dark");
+
+        const button =
+            document.getElementById("themeBtn");
+
+        if (document.body.classList.contains("dark")) {
+
+            button.textContent = "☀️";
+
+        } else {
+
+            button.textContent = "🌙";
+
+        }
+
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    function toggleMenu() {
+
+        document
+            .getElementById("navLinks")
+            .classList.toggle("active");
+
+    }
+
+
+    /* =========================
+       CLOSE MOBILE MENU
+    ========================= */
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("active");
+
+            });
+
+        });
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    window.addEventListener("scroll", () => {
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+        if (window.scrollY > 400) {
+
+            topBtn.style.display = "block";
+
+        } else {
+
+            topBtn.style.display = "none";
+
+        }
+
+    });
+
+
+    function goTop() {
+
+        window.scrollTo({
+
+            top: 0,
+            behavior: "smooth"
+
+        });
+
+    }
+
+</script>
+
+</body>
+</html>
